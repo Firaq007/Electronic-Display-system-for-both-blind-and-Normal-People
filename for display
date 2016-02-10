@@ -1,0 +1,300 @@
+#include<16f877a.h>
+#use delay(clock=20000000)
+#fuses NOLVP,NOWDT,NOPROTECT,HS
+
+
+#byte porta=5
+#byte portb=6
+#byte portc=7
+#byte portd=8
+
+int count=0;
+
+
+#int_EXT
+void ext_isr()
+{
+ count++;
+delay_ms(200);
+}
+void main()
+{
+ 
+set_tris_a(0x00);  
+set_tris_b(0x01);
+set_tris_c(0x80);
+set_tris_d(0x00);
+
+  output_d(0x00);
+   output_c(0x00);
+   enable_interrupts(GLOBAL);
+   enable_interrupts(INT_EXT);
+   ext_int_edge(L_TO_H);
+while (1)
+     {   
+      switch(count)
+        {
+       case 1:
+       output_d(0x77);//A
+       delay_ms(100);
+       output_c(0x01);
+   
+       break;
+     
+       case 2:
+       output_d(0x7C);//B
+       delay_ms(100);
+       output_c(0x03);
+   
+       break;
+
+       case 3:
+       output_d(0x39);//C
+       delay_ms(100);
+       output_c(0x21);
+  
+       break;
+
+       case 4:
+       output_d(0x5E);//D
+       delay_ms(100);
+       output_c(0x31);
+   
+       break;
+
+       case 5:
+       output_d(0x79);//E
+       delay_ms(100);
+       output_c(0x11);
+   
+       break;
+     
+       case 6:
+       output_d(0x71);//F
+       delay_ms(100);
+       output_c(0x23);
+   
+       break;
+
+       case 7:
+       output_d(0x6f);//G
+       delay_ms(100);
+       output_c(0x33);
+    
+       break;
+
+       case 8:
+       output_d(0x76);//H
+       delay_ms(100);
+       output_c(0x13);
+    
+       break;
+
+       case 9:
+       output_d(0x06);//I
+       delay_ms(100);
+       output_c(0x22);
+    
+       break;
+     
+       case 10:
+       output_d(0x1E);//J
+       delay_ms(100);
+       output_c(0x32);
+    
+       break;
+
+       case 11:
+       output_d(0x76);//K
+       delay_ms(100);
+       output_c(0x05);
+   
+       break;
+
+       case 12:
+       output_d(0x38);//L
+       delay_ms(100);
+       output_c(0x07);
+    
+       break;
+
+       case 13:
+       output_d(0x15);//M
+       delay_ms(100);
+       output_c(0x52);
+   
+       break;
+     
+       case 14:
+       output_d(0x54);//N
+       delay_ms(100);
+       output_c(0x53);
+    
+       break;
+       
+       case 15:
+       output_d(0x3F);//O
+       delay_ms(100);
+       output_c(0x15);
+    
+       break;
+     
+       case 16:
+       output_d(0x73);//P
+       delay_ms(100);
+       output_c(0x27);
+    
+       break;
+
+       case 17:
+       output_d(0x67);//Q
+       delay_ms(100);
+       output_c(0x37);
+    
+       break;
+
+       case 18:
+       output_d(0x50);//R
+       delay_ms(100);
+       output_c(0x17);
+    
+       break;
+
+       case 19:
+       output_d(0x6D);//S
+       delay_ms(100);
+       output_c(0x26);
+    
+       break;
+     
+       case 20:
+       output_d(0x78);//T
+       delay_ms(100);
+       output_c(0x36);
+    
+       break;
+
+       case 21:
+       output_d(0x3E);//U
+       delay_ms(100);
+       output_d(0x0D);
+    
+       break;
+
+       case 22:
+       output_d(0x1C);//V
+       delay_ms(100);
+       output_c(0x0F);
+    
+       break;
+
+       case 23:
+       output_d(0x2A);//W
+       delay_ms(100);
+       output_c(0x3A);
+    
+       break;
+     
+       case 24:
+       output_d(0x76);//X
+       delay_ms(100);
+       output_c(0x2d);
+    
+       break;
+
+       case 25:
+       output_d(0x6E);//Y
+       delay_ms(100);
+       output_c(0x3d);
+    
+       break;
+
+       case 26:
+       output_d(0x5B);//Z
+       delay_ms(100);
+       output_c(0x1d);
+    
+       break;
+       
+        case 27:
+       output_d(0x54);//NUMBERS
+       delay_ms(100);
+       output_c(0x53);
+    
+       break;
+
+         case 28:
+       output_d(0x3f);//0
+       delay_ms(100);
+        output_c(0x32);
+    
+       break;
+
+       case 29:
+       output_d(0x06);//1
+       delay_ms(100);
+       output_c(0x01);
+    
+       break;
+
+       case 30:
+       output_d(0x5B);//2
+       delay_ms(100);
+       output_c(0x03);
+    
+       break;
+
+       case 31:
+       output_d(0x4F);//3
+       delay_ms(100);
+       output_c(0x21);
+    
+       break;
+     
+       case 32:
+       output_d(0x66);//4
+       delay_ms(100);
+       output_c(0x31);
+    
+       break;
+
+       case 33:
+       output_d(0x6D);//5
+       delay_ms(100);
+       output_d(0x11);
+    
+       break;
+
+       case 34:
+       output_d(0x7D);//6
+       delay_ms(100);
+       output_c(0x23);
+    
+       break;
+
+       case 35:
+       output_d(0x07);//7
+       delay_ms(100);
+       output_c(0x33);
+    
+       break;
+     
+       case 36:
+       output_d(0x7F);//8
+       delay_ms(100);
+       output_c(0x13);
+    
+       break;
+
+       case 37:
+       output_d(0x6F);//9
+       delay_ms(100);
+       output_c(0x22);
+    
+       break;
+
+      
+    }
+   
+      }
+     }
