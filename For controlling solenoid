@@ -1,0 +1,67 @@
+#include<16f873a.h>
+#use delay(clock=20000000)
+#fuses NOLVP,NOWDT,NOPROTECT,HS
+
+#byte porta=5
+#byte portb=6
+#byte portc=7
+
+
+int data;
+
+void main()
+{
+ 
+set_tris_a(0xff);  
+set_tris_b(0x00);
+set_tris_c(0x80);
+    
+    output_b(0x00);
+ while (1)
+  { 
+   data=input_a() & 0xff;
+      
+  if(data==0x01)
+   {
+      output_b(0x03);
+      delay_ms(2000);
+      output_b(0x00);
+   }   
+   
+   else if(data==0x02)
+   {
+      output_b(0x03);
+       delay_ms(2000);
+      output_b(0x00);
+   
+   }
+   else if(data==0x04)
+   {
+     output_b(0x03);
+      delay_ms(2000);
+      output_b(0x00);
+   
+   }   
+   else if(data==0x08)
+   {
+      output_b(0x03);
+       delay_ms(2000);
+      output_b(0x00);
+      
+   }
+   else if(data==0x10)
+   {
+      output_b(0x03);
+       delay_ms(2000);
+      output_b(0x00);
+   
+   }   
+   else if(data==0x20)
+   {
+      output_b(0x03);
+       delay_ms(2000);
+      output_b(0x00);
+      
+   }
+  }
+}   
